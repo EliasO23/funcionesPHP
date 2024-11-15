@@ -1,17 +1,20 @@
 <?php
-function esPrimo($numero) {
-    if ($numero < 2) {
-        return false;
-    }
-    for ($i = 2; $i <= sqrt($numero); $i++) {
-        if ($numero % $i == 0) {
+    function esPrimo($numero) {
+        // Los números menores que 2 no son primos
+        if ($numero < 2) {
             return false;
         }
-    }
-    return true;
-}
 
-// Ejemplo de uso
-$numero = 2;
-echo "¿El número $numero es primo? " . (esPrimo($numero) ? "Sí" : "No") . "<br>";
+        for ($i = 2; $i <= $numero / 2; $i++) {
+            if ($numero % $i == 0) {
+                return false; // Si es divisible, no es primo
+            }
+        }
+
+        return true; // Si no se encontraron divisores, es primo
+    }
+
+    // Ejemplo de uso
+    $numero = 31;
+    echo "El número $numero: " . (esPrimo($numero) ? "Es primo" : "No es primo") . "<br>";
 ?>

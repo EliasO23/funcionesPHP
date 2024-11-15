@@ -1,6 +1,12 @@
 <?php
     function generarFibonacci($n) {
-        $fibonacci = [0, 1];  //Inicia la serie con 0 y 1
+        if ($n >= 0) {
+            $fibonacci[]= 0;  
+        }
+
+        if ($n >= 1) {
+            $fibonacci[] = 1;  
+        }
         
         for ($i = 2; $i < $n; $i++) {
             $fibonacci[] = $fibonacci[$i - 1] + $fibonacci[$i - 2];
@@ -10,7 +16,7 @@
     }
 
 
-    $n = 20;
+    $n = 10;
     echo "Los primeros $n términos de la serie Fibonacci son: <br>"; 
     echo implode(", ", generarFibonacci($n)) . "<br>";
 ?>
